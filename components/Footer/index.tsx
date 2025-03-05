@@ -263,7 +263,7 @@ const Footer = () => {
               viewport={{ once: true }}
               className="animate_top"
             >
-              <ul className="flex items-center gap-8">
+              {/* <ul className="flex items-center gap-8">
                 <li>
                   <a href="#" className="hover:text-primary">
                     English
@@ -279,10 +279,10 @@ const Footer = () => {
                     Support
                   </a>
                 </li>
-              </ul>
+              </ul> */}
             </motion.div>
 
-            <motion.div
+            {/* <motion.div
               variants={{
                 hidden: {
                   opacity: 0,
@@ -303,7 +303,7 @@ const Footer = () => {
               <p>
                 &copy; {new Date().getFullYear()} Solid. All rights reserved
               </p>
-            </motion.div>
+            </motion.div> */}
 
             <motion.div
               variants={{
@@ -348,7 +348,7 @@ const Footer = () => {
                     </svg>
                   </a>
                 </li>
-                <li>
+                {/* <li>
                   <a href="#" aria-label="social icon">
                     <svg
                       className="fill-[#D1D8E0] transition-all duration-300 hover:fill-primary"
@@ -371,7 +371,7 @@ const Footer = () => {
                       </defs>
                     </svg>
                   </a>
-                </li>
+                </li> */}
                 <li>
                   <a href="#" aria-label="social icon">
                     <svg
@@ -396,7 +396,7 @@ const Footer = () => {
                     </svg>
                   </a>
                 </li>
-                <li>
+                {/* <li>
                   <a href="#" aria-label="social icon">
                     <svg
                       className="fill-[#D1D8E0] transition-all duration-300 hover:fill-primary"
@@ -415,7 +415,7 @@ const Footer = () => {
                       </defs>
                     </svg>
                   </a>
-                </li>
+                </li> */}
               </ul>
             </motion.div>
           </div>
