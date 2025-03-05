@@ -1,3 +1,5 @@
+import { SanityImageSource } from "@sanity/image-url/lib/types/types";
+
 export type Author = {
   name: string;
   image: string;
@@ -6,14 +8,37 @@ export type Author = {
   _ref?: number | string;
 };
 
-export type Blog = {
-  _id: number;
+export interface Blog {
+  _id: string;
   title: string;
-  slug?: any;
+  slug: {
+    current: string;
+  };
+  mainImage: SanityImageSource;
+  secondaryImage?: SanityImageSource;
+  categories: string[];
   metadata?: string;
-  body?: string;
-  mainImage?: any;
-  author?: Author;
-  tags?: string[];
-  publishedAt?: string;
+  body: Body[];
+  originalArticle: string;
+  // author?: Author;
+  // tags?: string[];
+  // publishedAt?: string;
 };
+
+// types/block.ts
+export interface Span {
+  _key: string;
+  _type: 'span';
+  marks: string[];
+  text: string;
+}
+
+export interface Block {
+  _key: string;
+  _type: 'block';
+  style: string; // e.g., 'normal', 'h1', 'h2', etc.
+  children: Span[];
+  markDefs: any[]; // Define this more precisely if needed
+}
+
+export type Body = Block | SanityImageSource

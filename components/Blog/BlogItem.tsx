@@ -3,6 +3,7 @@ import { Blog } from "@/types/blog";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import SanityImage from "../Sanity";
 
 const BlogItem = ({ blog }: { blog: Blog }) => {
   const { mainImage, title, metadata } = blog;
@@ -28,7 +29,8 @@ const BlogItem = ({ blog }: { blog: Blog }) => {
         className="animate_top rounded-lg bg-white p-4 pb-9 shadow-solid-8 dark:bg-blacksection"
       >
         <Link href={`/blog/`} className="relative block aspect-[368/239]">
-          <Image src={mainImage} alt={title} fill />
+          <SanityImage src={mainImage} alt={title} fill />
+          {/* <Image src="/images/blog/blog-01.png" alt={title} fill /> */}
         </Link>
 
         <div className="px-4">
