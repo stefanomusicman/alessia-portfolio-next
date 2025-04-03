@@ -26,6 +26,7 @@ class SanityService {
         try {
             const request = `
             *[_type == "post" && categories[]->title match "${categoryName}"] {
+                _id,
                 title,
                 slug{current},
                 mainImage,
@@ -44,6 +45,47 @@ class SanityService {
             console.error(`ERROR FETCHING ARTICLES OF CATEGORY ${categoryName}: `, error);
         }
         return [];
+    }
+
+    async getArticleById(id: string): Promise<Blog> {
+        try {
+            const request = `
+                *[_type == "post" && _id match "${id}"] {
+                    _id,
+                    title,
+                    slug{current},
+                    mainImage,
+                    secondaryImage,
+                    categories[]->{
+                        title
+                    },
+                    body,
+                    originalArticle
+                }
+            `;
+
+            const article = await this.client.fetch(request);
+
+            // Ensure the article exists
+            if (!article || article.length === 0) {
+                throw new Error(`Article with ID ${id} not found`);
+            }
+
+            return article[0] as Blog;
+        } catch (error) {
+            console.error(`ERROR FETCHING ARTICLE WITH ID ${id}: `, error);
+
+            return {
+                _id: '',
+                title: 'Article Not Found',
+                slug: { current: '' },
+                mainImage: '',
+                secondaryImage: '',
+                categories: [],
+                body: [],
+                originalArticle: '',
+            };
+        }
     }
 }
 
