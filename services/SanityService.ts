@@ -87,6 +87,17 @@ class SanityService {
             };
         }
     }
+
+    async getCategoryTitles(): Promise<string[]> {
+        try {
+            const request = `*[_type == "category"].title`;
+            const titles = await this.client.fetch(request);
+            return titles as string[];
+        } catch (error) {
+            console.error("ERROR FETCHING CATEGORY TITLES: ", error);
+            return [];
+        }
+    }
 }
 
 export default new SanityService();

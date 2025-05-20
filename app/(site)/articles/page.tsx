@@ -17,28 +17,25 @@ const BlogPage = () => {
   const [articles, setArticles] = useState<Blog[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>('Environment');
   const dropdownRef = useRef<HTMLDetailsElement>(null);
-  
-  const [categories, setCategories] = useState<string[]>([
-    'In-Depth',
-    'Economy',
-    'Legal',
-    'Health',
-    'Entertainment',
-    'Energy and Tech',
-    'Community',
-    'Lifestyle',
-    'Politics',
-    'Sports',
-    'Environment',
-  ]);
+  const [loading, setLoading] = useState<boolean>(true);
+
+  const [categoryTitles, setCategoryTitles] = useState<string[]>([]);
 
   useEffect(() => {
     const fetchArticles = async () => {
+      setLoading(true);
       const fetchedArticles = await SanityService.getArticlesByCategory(selectedCategory);
       setArticles(fetchedArticles);
+      setLoading(false);
+    }
+
+    const fetchCategoryTitles = async () => {
+      const fetchedCategoryTitles = await SanityService.getCategoryTitles();
+      setCategoryTitles(fetchedCategoryTitles);
     }
 
     fetchArticles();
+    fetchCategoryTitles();
   }, [selectedCategory]);
 
   return (
@@ -64,9 +61,9 @@ const BlogPage = () => {
                   />
                 </svg>
               </summary>
-              <div className="absolute left-1/2 transform -translate-x-1/2 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-50 dark:bg-blacksection">
+              <div className="absolute left-1/2 transform -translate-x-1/2 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-50 dark:bg-blacksection dark:text-white">
                 <div className="py-1">
-                  {categories.map((category, index) => (
+                  {categoryTitles.map((category, index) => (
                     <p 
                       key={index} 
                       className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:cursor-pointer dark:bg-blacksection dark:text-white"
@@ -88,7 +85,11 @@ const BlogPage = () => {
         </div>
 
         <div className="mx-auto mt-15 max-w-c-1280 px-4 md:px-8 xl:mt-20 xl:px-0">
-          {articles.length > 0 ? (
+          {loading ? (
+            <div className="flex justify-center items-center py-20">
+              <div className="spinner"></div>
+            </div>
+          ) : articles.length > 0 ? (
             <div className="grid grid-cols-1 gap-7.5 md:grid-cols-2 lg:grid-cols-3 xl:gap-10">
               {articles.map((post, key) => (
                 <BlogItem key={key} blog={post} />
