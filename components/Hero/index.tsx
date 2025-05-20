@@ -28,7 +28,7 @@ const Hero = () => {
                 A curious person by nature, tenacious questioning became my strength.
                 It has led me to grow a genuine interest in diverse subjects, push my mind
                 outside its comfort zone,
-                and build connections with those who respond. To tell one’s story is a privilege
+                and build connections with those who respond. To tell one's story is a privilege
                 I take great pride in.
                 Allow me to help you share yours.
               </p>
@@ -67,13 +67,13 @@ const Hero = () => {
                   height={246}
                   className="absolute -left-11.5 top-0"
                 />
-                <Image
+                {/* <Image
                   src="/images/shape/shape-02.svg"
                   alt="shape"
                   width={36.9}
                   height={36.7}
                   className="absolute bottom-0 right-0 z-10"
-                />
+                /> */}
                 <Image
                   src="/images/shape/shape-03.svg"
                   alt="shape"
@@ -81,16 +81,16 @@ const Hero = () => {
                   height={21.66}
                   className="absolute -right-6.5 bottom-0 z-1"
                 />
-                <div className=" relative aspect-[700/444] w-full">
+                <div className=" relative aspect-[700/444] w-full rounded-[15px] overflow-hidden">
                   <Image
-                    className="shadow-solid-l dark:hidden"
-                    src="/images/hero/hero-light.svg"
+                    className="dark:hidden object-cover object-top"
+                    src="/images/hero/alessia-profile-pic.jpg"
                     alt="Hero"
                     fill
                   />
                   <Image
-                    className="hidden shadow-solid-l dark:block"
-                    src="/images/hero/hero-dark.svg"
+                    className="hidden dark:block object-cover object-top"
+                    src="/images/hero/alessia-profile-pic.jpg"
                     alt="Hero"
                     fill
                   />
