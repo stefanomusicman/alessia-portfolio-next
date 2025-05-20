@@ -60,13 +60,13 @@ const Hero = () => {
 
             <div className="animate_right hidden md:w-1/2 lg:block">
               <div className="relative 2xl:-mr-7.5">
-                <Image
+                {/* <Image
                   src="/images/shape/shape-01.png"
                   alt="shape"
                   width={46}
                   height={246}
                   className="absolute -left-11.5 top-0"
-                />
+                /> */}
                 {/* <Image
                   src="/images/shape/shape-02.svg"
                   alt="shape"
