@@ -29,7 +29,8 @@ const Footer = () => {
                 className="animate_top w-1/2 lg:w-1/4"
               >
                 <a href="/" className="relative">
-                  <Image
+                <h1 className="text-2xl font-bold">Alessia Productions</h1>
+                  {/* <Image
                     width={110}
                     height={80}
                     src="/images/logo/logo-light.svg"
@@ -42,7 +43,7 @@ const Footer = () => {
                     src="/images/logo/logo-dark.svg"
                     alt="Logo"
                     className="hidden dark:block"
-                  />
+                  /> */}
                 </a>
 
                 <p className="mb-10 mt-5">
@@ -86,7 +87,7 @@ const Footer = () => {
                   <ul>
                     <li>
                       <a
-                        href="#"
+                        href="/"
                         className="mb-3 inline-block hover:text-primary"
                       >
                         Home
@@ -94,32 +95,32 @@ const Footer = () => {
                     </li>
                     <li>
                       <a
-                        href="#"
+                        href="/about"
                         className="mb-3 inline-block hover:text-primary"
                       >
-                        Product
+                        About
                       </a>
                     </li>
                     <li>
                       <a
-                        href="#"
+                        href="/articles"
                         className="mb-3 inline-block hover:text-primary"
                       >
-                        Careers
+                        Articles
                       </a>
                     </li>
                     <li>
                       <a
-                        href="#"
+                        href="/contact"
                         className="mb-3 inline-block hover:text-primary"
                       >
-                        Pricing
+                        Contact
                       </a>
                     </li>
                   </ul>
                 </motion.div>
 
-                <motion.div
+                {/* <motion.div
                   variants={{
                     hidden: {
                       opacity: 0,
@@ -175,9 +176,9 @@ const Footer = () => {
                       </a>
                     </li>
                   </ul>
-                </motion.div>
+                </motion.div> */}
 
-                <motion.div
+                {/* <motion.div
                   variants={{
                     hidden: {
                       opacity: 0,
@@ -237,7 +238,7 @@ const Footer = () => {
                       </button>
                     </div>
                   </form>
-                </motion.div>
+                </motion.div> */}
               </div>
             </div>
           </div>

@@ -79,8 +79,8 @@ const Header = () => {
                         href={`${menuItem.path}`}
                         className={
                           pathUrl === menuItem.path
-                            ? "text-primary hover:text-primary"
-                            : "hover:text-primary"
+                            ? "text-white hover:text-black dark:hover:text-primary"
+                            : "hover:text-black dark:hover:text-primary"
                         }
                       >
                         {menuItem.title}
@@ -171,8 +171,8 @@ const Header = () => {
                           href={`${menuItem.path}`}
                           className={
                             pathUrl === menuItem.path
-                              ? "text-primary hover:text-primary"
-                              : "hover:text-primary"
+                              ? "text-white hover:text-black dark:hover:text-primary"
+                              : "hover:text-black dark:hover:text-primary"
                           }
                         >
                           {menuItem.title}
