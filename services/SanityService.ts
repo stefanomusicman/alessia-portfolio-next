@@ -113,6 +113,23 @@ class SanityService {
             return [];
         }
     }
+
+    async getLatestWork(): Promise<{ _id: string; title: string; category: string; description: string; fullArticle: string }[]> {
+        try {
+            const request = `*[_type == "latestWork"] | order(_createdAt asc) {
+                _id,
+                title,
+                category,
+                description,
+                fullArticle
+            }`;
+            const items = await this.client.fetch(request);
+            return items as { _id: string; title: string; category: string; description: string; fullArticle: string }[];
+        } catch (error) {
+            console.error("ERROR FETCHING LATEST WORK: ", error);
+            return [];
+        }
+    }
 }
 
 export default new SanityService();

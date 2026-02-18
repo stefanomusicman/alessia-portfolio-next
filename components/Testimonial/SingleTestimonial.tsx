@@ -1,21 +1,29 @@
-import { Testimonial } from "@/types/testimonial";
-import Image from "next/image";
+import type { LatestWorkItem } from "@/types/latest-work";
 
-const SingleTestimonial = ({ review }: { review: Testimonial }) => {
-  const { name, designation, image, content } = review;
+const SingleTestimonial = ({ item }: { item: LatestWorkItem }) => {
+  const { title, category, description, fullArticle } = item;
   return (
     <div className="rounded-lg bg-surface p-9 pt-7.5 shadow-solid-9 dark:border dark:border-strokedark dark:bg-blacksection dark:shadow-none">
       <div className="mb-7.5 flex justify-between border-b border-stroke pb-6 dark:border-strokedark">
         <div>
           <h3 className="mb-1.5 text-metatitle3 text-black dark:text-white">
-            {name}
+            {title}
           </h3>
-          <p>{designation}</p>
+          <p>{category}</p>
         </div>
-        <Image width={60} height={50} className="" src={image} alt={name} />
       </div>
 
-      <p>{content}</p>
+      <p>{description}</p>
+      {fullArticle ? (
+        <a
+          href={fullArticle}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-4 inline-block text-primary hover:underline"
+        >
+          See Article
+        </a>
+      ) : null}
     </div>
   );
 };

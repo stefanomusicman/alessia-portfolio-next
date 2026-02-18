@@ -1,5 +1,9 @@
 "use client";
+import { useState, useEffect } from "react";
+import SanityService from "@/services/SanityService";
+import type { LatestWorkItem } from "@/types/latest-work";
 import SectionHeader from "../Common/SectionHeader";
+import SingleTestimonial from "./SingleTestimonial";
 
 import { Autoplay, Pagination } from "swiper";
 import "swiper/css";
@@ -8,10 +12,18 @@ import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import { motion } from "framer-motion";
-import SingleTestimonial from "./SingleTestimonial";
-import { testimonialData } from "./testimonialData";
 
 const Testimonial = () => {
+  const [items, setItems] = useState<LatestWorkItem[]>([]);
+
+  useEffect(() => {
+    SanityService.getLatestWork().then(setItems);
+  }, []);
+
+  if (items.length === 0) {
+    return null;
+  }
+
   return (
     <>
       <section>
@@ -72,9 +84,9 @@ const Testimonial = () => {
                 },
               }}
             >
-              {testimonialData.map((review) => (
-                <SwiperSlide key={review?.id}>
-                  <SingleTestimonial review={review} />
+              {items.map((item) => (
+                <SwiperSlide key={item._id}>
+                  <SingleTestimonial item={item} />
                 </SwiperSlide>
               ))}
             </Swiper>
