@@ -1,4 +1,5 @@
 import { Blog } from "@/types/blog";
+import { MultimediaItem } from "@/types/multimedia";
 import { createClient, SanityClient } from "@sanity/client";
 import imageUrlBuilder from "@sanity/image-url"
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
@@ -127,6 +128,26 @@ class SanityService {
             return items as { _id: string; title: string; category: string; description: string; fullArticle: string }[];
         } catch (error) {
             console.error("ERROR FETCHING LATEST WORK: ", error);
+            return [];
+        }
+    }
+
+    /**
+     * Fetches all multimedia documents (photos or videos).
+     * Expected Sanity schema: type "multimedia" with title, optional image, optional videoUrl.
+     */
+    async getMultimedia(): Promise<MultimediaItem[]> {
+        try {
+            const request = `*[_type == "multimedia"] | order(_createdAt asc) {
+                _id,
+                title,
+                image,
+                videoUrl
+            }`;
+            const items = await this.client.fetch(request);
+            return items as MultimediaItem[];
+        } catch (error) {
+            console.error("ERROR FETCHING MULTIMEDIA: ", error);
             return [];
         }
     }
