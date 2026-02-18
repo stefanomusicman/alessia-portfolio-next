@@ -5,8 +5,8 @@ const brandData: Brand[] = [
     id: 0.25,
     name: "Client",
     href: "#",
-    image: "/images/brand/concordia-logo.svg",
-    imageLight: "/images/brand/concordia-logo.svg",
+    image: "/images/brand/ski-canada-magazine.png",
+    imageLight: "/images/brand/ski-canada-magazine.png",
   },
   {
     id: 0.3,

@@ -98,6 +98,21 @@ class SanityService {
             return [];
         }
     }
+
+    async getFaqs(): Promise<{ _id: string; question: string; answer: string }[]> {
+        try {
+            const request = `*[_type == "faq"] | order(_createdAt asc) {
+                _id,
+                question,
+                answer
+            }`;
+            const faqs = await this.client.fetch(request);
+            return faqs as { _id: string; question: string; answer: string }[];
+        } catch (error) {
+            console.error("ERROR FETCHING FAQS: ", error);
+            return [];
+        }
+    }
 }
 
 export default new SanityService();

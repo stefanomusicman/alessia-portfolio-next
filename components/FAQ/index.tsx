@@ -1,12 +1,19 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import SanityService from "@/services/SanityService";
 import FAQItem from "./FAQItem";
-import faqData from "./faqData";
+
+type FaqFromSanity = { _id: string; question: string; answer: string };
 
 const FAQ = () => {
   const [activeFaq, setActiveFaq] = useState(1);
+  const [faqList, setFaqList] = useState<FaqFromSanity[]>([]);
+
+  useEffect(() => {
+    SanityService.getFaqs().then(setFaqList);
+  }, []);
 
   const handleFaqToggle = (id: number) => {
     activeFaq === id ? setActiveFaq(0) : setActiveFaq(id);
@@ -97,11 +104,17 @@ const FAQ = () => {
               viewport={{ once: true }}
               className="animate_right md:w-3/5 lg:w-1/2"
             >
-              <div className="rounded-lg bg-white shadow-solid-8 dark:border dark:border-strokedark dark:bg-blacksection">
-                {faqData.map((faq, key) => (
+              <div className="rounded-lg bg-surface shadow-solid-8 dark:border dark:border-strokedark dark:bg-blacksection">
+                {faqList.map((faq, index) => (
                   <FAQItem
-                    key={key}
-                    faqData={{ ...faq, activeFaq, handleFaqToggle }}
+                    key={faq._id}
+                    faqData={{
+                      id: index + 1,
+                      question: faq.question,
+                      answer: faq.answer,
+                      activeFaq,
+                      handleFaqToggle,
+                    }}
                   />
                 ))}
               </div>

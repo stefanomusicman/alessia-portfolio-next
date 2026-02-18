@@ -29,8 +29,8 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed left-0 top-0 z-99999 w-full py-7 ${stickyMenu
-        ? "bg-[#f6e7d7] !py-4 shadow transition duration-100 dark:bg-black"
+      className={`fixed left-0 top-0 z-99999 w-full py-7 bg-apache dark:bg-transparent ${stickyMenu
+        ? "!py-4 shadow transition duration-100 dark:bg-black"
         : ""
         }`}
     >
@@ -39,8 +39,16 @@ const Header = () => {
         <div className="hidden xl:flex items-center justify-between w-full">
           {/* Left Container */}
           <div className="flex w-1/3 items-center justify-start">
-            <a className="text-lg" href="/">
-              Alessia Productions
+            <a href="/" className="flex items-center gap-2">
+              <Image
+                src="/images/logo/alessia-proietti-logo.png"
+                alt="Alessia Productions"
+                width={176}
+                height={53}
+                unoptimized
+                className="h-11 w-auto object-contain object-left"
+              />
+              <span className="text-lg font-medium text-black dark:text-white whitespace-nowrap">Alessia Pro.ductions</span>
             </a>
           </div>
           {/* Center Container */}
@@ -102,8 +110,16 @@ const Header = () => {
         {/* Mobile Layout */}
         <div className="xl:hidden w-full">
           <div className="flex w-full items-center justify-between">
-            <a className="text-lg" href="/">
-              Alessia Productions
+            <a href="/" className="flex items-center gap-2">
+              <Image
+                src="/images/logo/alessia-proietti-logo.png"
+                alt="Alessia Productions"
+                width={154}
+                height={46}
+                unoptimized
+                className="h-10 w-auto object-contain object-left"
+              />
+              <span className="text-base font-medium text-black dark:text-white whitespace-nowrap">Alessia Pro.ductions</span>
             </a>
             {/* Hamburger Toggle BTN */}
             <button
@@ -136,7 +152,7 @@ const Header = () => {
           </div>
           {/* Mobile Navigation */}
           {navigationOpen && (
-            <div className="navbar visible mt-4 h-auto max-h-[400px] rounded-md bg-white p-7.5 shadow-solid-5 dark:bg-blacksection">
+            <div className="navbar visible mt-4 h-auto max-h-[400px] rounded-md bg-surface p-7.5 shadow-solid-5 dark:bg-blacksection">
               <nav>
                 <ul className="flex flex-col gap-5">
                   {menuData.map((menuItem, key) => (

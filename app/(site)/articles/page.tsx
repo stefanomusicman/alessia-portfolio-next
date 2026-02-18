@@ -46,7 +46,7 @@ const BlogPage = () => {
         <div className="flex justify-center mb-10">
           <div className="relative">
             <details className="group" ref={dropdownRef}>
-              <summary className="px-4 py-2 bg-white border border-gray-300 rounded-md shadow-sm cursor-pointer hover:bg-gray-50 flex items-center dark:bg-blacksection">
+              <summary className="px-4 py-2 bg-surface border border-gray-300 rounded-md shadow-sm cursor-pointer hover:bg-gray-50 flex items-center dark:bg-blacksection">
                 {selectedCategory || 'Filter by Category'}
                 <svg
                   className="w-5 h-5 ml-2 transition-transform group-open:rotate-180"
@@ -61,7 +61,7 @@ const BlogPage = () => {
                   />
                 </svg>
               </summary>
-              <div className="absolute left-1/2 transform -translate-x-1/2 mt-2 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-50 dark:bg-blacksection dark:text-white">
+              <div className="absolute left-1/2 transform -translate-x-1/2 mt-2 w-48 bg-surface border border-gray-200 rounded-md shadow-lg z-50 dark:bg-blacksection dark:text-white">
                 <div className="py-1">
                   {categoryTitles.map((category, index) => (
                     <p 

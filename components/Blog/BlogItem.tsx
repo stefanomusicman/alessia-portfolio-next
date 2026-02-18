@@ -26,7 +26,7 @@ const BlogItem = ({ blog }: { blog: Blog }) => {
         whileInView="visible"
         transition={{ duration: 1, delay: 0.5 }}
         viewport={{ once: true }}
-        className="animate_top rounded-lg bg-white p-4 pb-9 shadow-solid-8 dark:bg-blacksection"
+        className="animate_top rounded-lg bg-surface p-4 pb-9 shadow-solid-8 dark:bg-blacksection"
       >
         <Link href={`/articles/${_id}`} className="relative block aspect-[368/239]">
           <SanityImage src={mainImage} alt={title} fill />

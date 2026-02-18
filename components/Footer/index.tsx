@@ -5,7 +5,7 @@ import Image from "next/image";
 const Footer = () => {
   return (
     <>
-      <footer className="border-t border-stroke bg-[#f6e7d7] dark:border-strokedark dark:bg-blacksection">
+      <footer className="border-t border-[#c8d69a]/80 bg-apache dark:border-strokedark dark:bg-blacksection">
         <div className="mx-auto max-w-c-1390 px-4 md:px-8 2xl:px-0">
           {/* <!-- Footer Top --> */}
           <div className="py-20 lg:py-25">
@@ -28,22 +28,15 @@ const Footer = () => {
                 viewport={{ once: true }}
                 className="animate_top w-1/2 lg:w-1/4"
               >
-                <a href="/" className="relative">
-                <h1 className="text-2xl font-bold">Alessia Productions</h1>
-                  {/* <Image
-                    width={110}
-                    height={80}
-                    src="/images/logo/logo-light.svg"
-                    alt="Logo"
-                    className="dark:hidden"
-                  />
+                <a href="/" className="inline-block">
                   <Image
-                    width={110}
-                    height={80}
-                    src="/images/logo/logo-dark.svg"
-                    alt="Logo"
-                    className="hidden dark:block"
-                  /> */}
+                    src="/images/logo/alessia-proietti-logo.png"
+                    alt="Alessia Productions"
+                    width={480}
+                    height={144}
+                    unoptimized
+                    className="h-36 w-auto object-contain object-left"
+                  />
                 </a>
 
                 <p className="mb-10 mt-5">
@@ -245,7 +238,7 @@ const Footer = () => {
           {/* <!-- Footer Top --> */}
 
           {/* <!-- Footer Bottom --> */}
-          <div className="flex flex-col flex-wrap items-center justify-center gap-5 border-t border-stroke py-7 dark:border-strokedark lg:flex-row lg:justify-between lg:gap-0">
+          <div className="flex flex-col flex-wrap items-center justify-center gap-5 border-t border-[#c8d69a]/80 py-7 dark:border-strokedark lg:flex-row lg:justify-between lg:gap-0">
             <motion.div
               variants={{
                 hidden: {

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 299 299" fill="none" aria-hidden="true">
+  <!-- Open book: spine at center, two pages angled open -->
+  <g stroke="#3a5940" stroke-width="2.5" stroke-linejoin="round">
+    <!-- Left page -->
+    <path d="M149 55 L149 268 L80 238 L80 85 Z" fill="rgba(58,89,64,0.2)"/>
+    <!-- Right page -->
+    <path d="M149 55 L149 268 L218 238 L218 85 Z" fill="rgba(58,89,64,0.2)"/>
+  </g>
+</svg>

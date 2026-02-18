@@ -3,8 +3,9 @@ import Image from "next/image";
 import { Brand } from "@/types/brand";
 import { motion } from "framer-motion";
 
-const SingleBrand = ({ brand }: { brand: Brand }) => {
+const SingleBrand = ({ brand, index = 0 }: { brand: Brand; index?: number }) => {
   const { image, href, name, imageLight, id } = brand;
+  const isFirst = index === 0;
 
   return (
     <>
@@ -25,7 +26,7 @@ const SingleBrand = ({ brand }: { brand: Brand }) => {
         transition={{ duration: 1, delay: id }}
         viewport={{ once: true }}
         href={href}
-        className="animate_top relative flex items-center justify-center h-10 w-full max-w-[150px]"
+        className={`animate_top relative flex items-center justify-center w-full ${isFirst ? "h-16 min-h-16 max-w-[220px]" : "h-10 max-w-[150px]"}`}
       >
         <Image
           className="opacity-65 transition-all duration-300 hover:opacity-100 dark:hidden object-contain"
